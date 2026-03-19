@@ -1,0 +1,21 @@
+target-version = "py311"
+line-length = 88
+
+[lint]
+select = [
+  "E",    # pycodestyle errors
+  "F",    # pyflakes
+  "I",    # isort
+  "UP",   # pyupgrade
+  "B",    # flake8-bugbear
+  "SIM",  # flake8-simplicity
+  "ANN",  # flake8-annotations
+  "RUF",  # ruff-specific
+]
+ignore = [
+  "ANN101",  # missing type annotation for self
+  "ANN102",  # missing type annotation for cls
+]
+
+[lint.isort]
+known-first-party = ["refactory_annotate", "refactory_shadows"]

@@ -1,0 +1,36 @@
+# Base pyproject.toml settings for refactory-lang Python repos.
+# Copy relevant sections into your repo's pyproject.toml.
+# Python doesn't support extending pyproject.toml, so this is
+# a reference — not directly importable.
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+requires-python = ">=3.11"
+license = "Apache-2.0"
+authors = [
+    { name = "Refactory", email = "dev@refactory.dev" },
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=5.0",
+    "ruff>=0.11",
+    "mypy>=1.0",
+    "pyright>=1.1",
+]
+
+[tool.ruff]
+extend = "ruff.toml"  # from @refactory/config-python
+
+[tool.mypy]
+# See mypy.toml in @refactory/config-python for base settings
+strict = true
+python_version = "3.11"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-markers"
